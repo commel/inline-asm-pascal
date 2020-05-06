@@ -1,20 +1,17 @@
 program app;
 
-{$mode delphi}{$asmMode intel}
+{$mode delphi}
+{$asmMode intel}
 
-var
-   a : Integer = 0;
-
-procedure addone(x : Integer);
+function addone(x : Integer): Integer;
 begin
    asm
    mov eax, x
    add eax, $1
-   mov a, eax
+   mov result, eax
    end;
 end;
 
 begin
-   addone(5);
-   writeln(a);
+   writeln(addone(5));
 end.
